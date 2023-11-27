@@ -22,6 +22,7 @@ idx = pd.date_range(df.index[0], df.index[-1])
 df = df.reindex(idx, fill_value=np.nan)
 
 # find all values that has a percentage change greater or lower than X and assign them to NaN
+# try sigma 1 - 2
 df['eto_pct_change'] = df['eto'].pct_change()
 df.loc[df['eto_pct_change'] < -0.5, 'eto'] = np.nan
 df.loc[df['eto_pct_change'] > 0.5, 'eto'] = np.nan
